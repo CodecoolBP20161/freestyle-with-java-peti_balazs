@@ -1,3 +1,8 @@
+import controller.Exchanger;
+import model.Amount;
+import model.CurrencyInEur;
+import model.CurrencyInUsd;
+
 import java.math.BigDecimal;
 
 /**

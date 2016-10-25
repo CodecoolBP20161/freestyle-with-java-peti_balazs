@@ -1,3 +1,5 @@
+package model;
+
 import java.math.BigDecimal;
 
 /**
@@ -5,7 +7,7 @@ import java.math.BigDecimal;
  */
 public class Amount {
 
-    BigDecimal value;
+    public BigDecimal value;
 
     public Amount(BigDecimal value){
         this.value = value;

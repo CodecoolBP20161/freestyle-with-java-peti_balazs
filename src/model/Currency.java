@@ -1,3 +1,5 @@
+package model;
+
 import java.math.BigDecimal;
 
 /**
@@ -5,7 +7,7 @@ import java.math.BigDecimal;
  */
 public class Currency {
 
-    String name;
-    String baseCurrency;
-    BigDecimal rate;
+    public String name;
+    public String baseCurrency;
+    public BigDecimal rate;
 }

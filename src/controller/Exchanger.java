@@ -1,3 +1,9 @@
+package controller;
+
+import model.Amount;
+import model.Currency;
+import model.CurrencyInUsd;
+
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
