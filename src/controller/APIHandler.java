@@ -16,7 +16,8 @@ public class APIHandler {
                 // Protected code
                 CurrencyAPI rawData = new CurrencyAPI();
                 String json = rawData.currencyAPI(baseCurrency);
-                Map<String, HashMap<String, Double>> outerMap = new Gson().fromJson(json, new TypeToken<HashMap<String, Object>>() {
+                Map<String, HashMap<String, Double>> outerMap =
+                        new Gson().fromJson(json, new TypeToken<HashMap<String, Object>>() {
                 }.getType());
                 Map<String, Double> map = outerMap.get("rates");
                 Double rateDouble = map.get(currency);

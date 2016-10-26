@@ -1,7 +1,6 @@
 package controller;
 
 import model.Amount;
-import model.Currency;
 import model.CurrencyInEur;
 import model.CurrencyInUsd;
 
@@ -12,7 +11,8 @@ import java.util.Arrays;
 
 public class Exchanger {
 
-    String[] eurCurrencies = new String[]{"BGN", "CHF", "CZK", "DKK", "GBP", "HRK", "HUF", "NOK", "PLN", "RON", "RUB", "SEK", "TRY", "USD"};
+    private String[] eurCurrencies = new String[]{"BGN", "CHF", "CZK", "DKK", "GBP",
+            "HRK", "HUF", "NOK", "PLN", "RON", "RUB", "SEK", "TRY", "USD"};
 
     public BigDecimal exchanger(String currency1, String currency2, Amount amount){
 
@@ -29,7 +29,9 @@ public class Exchanger {
 
 
             // result = amount.value * currency1.rate * eur.rate / currency2.rate;
-            result = amount.value.multiply(currencyFrom.rate).multiply(eur.rate).divide(currencyTo.rate, 8,RoundingMode.HALF_UP);
+            result = amount.value.multiply(currencyFrom.rate)
+                    .multiply(eur.rate)
+                    .divide(currencyTo.rate, 8,RoundingMode.HALF_UP);
         }
 
         // usd base to eur base
@@ -42,16 +44,21 @@ public class Exchanger {
             CurrencyInEur usd = new CurrencyInEur("USD");
 
             // result = amount.value * currency1.rate * usd.rate / currency2.rate;
-            result = amount.value.multiply(currencyFrom.rate).multiply(usd.rate).divide(currencyTo.rate, 8,RoundingMode.HALF_UP);
+            result = amount.value.multiply(currencyFrom.rate)
+                    .multiply(usd.rate)
+                    .divide(currencyTo.rate, 8,RoundingMode.HALF_UP);
         }
 
         // eur base to eur base
-        else if(Arrays.asList(eurCurrencies).contains(currency1) && Arrays.asList(eurCurrencies).contains(currency2)){
+        else if(Arrays.asList(eurCurrencies).contains(currency1)
+                && Arrays.asList(eurCurrencies).contains(currency2)){
+
             // result = amount.value * currency1.rate / currency2.rate;
             CurrencyInEur currencyFrom = new CurrencyInEur(currency1);
             CurrencyInEur currencyTo = new CurrencyInEur(currency2);
 
-            result = amount.value.multiply(currencyFrom.rate).divide(currencyTo.rate, 8,RoundingMode.HALF_UP);
+            result = amount.value.multiply(currencyFrom.rate)
+                    .divide(currencyTo.rate, 8,RoundingMode.HALF_UP);
         }
 
         // usd base to usd base
@@ -59,7 +66,8 @@ public class Exchanger {
             CurrencyInUsd currencyFrom = new CurrencyInUsd(currency1);
             CurrencyInUsd currencyTo = new CurrencyInUsd(currency2);
 
-            result = amount.value.multiply(currencyFrom.rate).divide(currencyTo.rate, 8,RoundingMode.HALF_UP);
+            result = amount.value.multiply(currencyFrom.rate)
+                    .divide(currencyTo.rate, 8,RoundingMode.HALF_UP);
         }
 
         return result;

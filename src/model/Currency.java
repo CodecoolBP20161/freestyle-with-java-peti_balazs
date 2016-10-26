@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 
 public abstract class Currency {
 
-    public String name;
-    public String baseCurrency;
+    String name;
+    String baseCurrency;
     public BigDecimal rate;
 }

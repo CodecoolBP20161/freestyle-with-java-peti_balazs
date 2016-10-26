@@ -12,13 +12,17 @@ public class Menu {
     public void menu() {
         while(true) {
             try {
-                Scanner reader = new Scanner(System.in);  // Reading from System.in
+                // Reading from System.in
+                Scanner reader = new Scanner(System.in);
 
                 System.out.println("How much money would you like to exchange? ");
-                Amount amount = new Amount(reader.nextBigDecimal()); // Scans the next token of the input as a BigDecimal.
+                // Scans the next token of the input as a BigDecimal.
+                Amount amount = new Amount(reader.nextBigDecimal());
 
-                System.out.println("Available currencies: AUD, BGN, BRL, CAD, CHF, CNY, CZK, DKK, GBP, HKD, HRK, HUF, IDR, ILS, " +
-                        "INR, JPY, KRW, MXN, MYR, NOK, NZD, PHP, PLN, RON, RUB, SEK, SGD, THB, TRY, USD, ZAR");
+                System.out.println("Available currencies: AUD, BGN, BRL, " +
+                        "CAD,CHF, CNY, CZK, DKK, GBP, HKD, HRK, HUF, IDR, " +
+                        "ILS, INR, JPY, KRW, MXN, MYR, NOK, NZD, PHP, PLN, " +
+                        "RON, RUB, SEK, SGD, THB, TRY, USD, ZAR");
 
                 System.out.println("From which currency? ");
                 String currency1 = reader.next().toUpperCase();

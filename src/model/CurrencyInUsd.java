@@ -12,7 +12,7 @@ public class CurrencyInUsd extends Currency {
         this.rate = getRate(this.baseCurrency, name);
     }
 
-    static BigDecimal getRate(String baseCurrency, String name){
+    private BigDecimal getRate(String baseCurrency, String name){
         APIHandler newRate = new APIHandler();
         return newRate.apiHandler(baseCurrency, name);
     }

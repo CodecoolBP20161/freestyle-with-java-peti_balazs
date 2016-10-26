@@ -1,6 +1,5 @@
 import view.Menu;
 
-import java.util.InputMismatchException;
 
 public class Main {
 
