@@ -19,6 +19,7 @@ public class Exchanger {
 
         BigDecimal result;
 
+        // eur base to usd base
         if(Arrays.asList(eurCurrencies).contains(currency1) !=
                 Arrays.asList(eurCurrencies).contains(currency2) &&
                 Arrays.asList(eurCurrencies).contains(currency1)){
@@ -31,25 +32,30 @@ public class Exchanger {
             // result = amount.value * currency1.rate * eur.rate / currency2.rate;
             result = amount.value.multiply(currencyFrom.rate).multiply(eur.rate).divide(currencyTo.rate, 8,RoundingMode.HALF_UP);
         }
+
+        // usd base to eur base
         else if(Arrays.asList(eurCurrencies).contains(currency2) !=
                 Arrays.asList(eurCurrencies).contains(currency1) &&
                 Arrays.asList(eurCurrencies).contains(currency2)){
 
-            CurrencyInEur currencyFrom = new CurrencyInEur(currency1);
-            CurrencyInUsd currencyTo = new CurrencyInUsd(currency2);
-            CurrencyInUsd usd = new CurrencyInUsd("USD");
+            CurrencyInUsd currencyFrom = new CurrencyInUsd(currency1);
+            CurrencyInEur currencyTo = new CurrencyInEur(currency2);
+            CurrencyInEur usd = new CurrencyInEur("USD");
 
             // result = amount.value * currency1.rate * usd.rate / currency2.rate;
             result = amount.value.multiply(currencyFrom.rate).multiply(usd.rate).divide(currencyTo.rate, 8,RoundingMode.HALF_UP);
         }
+
+        // eur base to eur base
         else if(Arrays.asList(eurCurrencies).contains(currency1) && Arrays.asList(eurCurrencies).contains(currency2)){
             // result = amount.value * currency1.rate / currency2.rate;
-
             CurrencyInEur currencyFrom = new CurrencyInEur(currency1);
             CurrencyInEur currencyTo = new CurrencyInEur(currency2);
 
             result = amount.value.multiply(currencyFrom.rate).divide(currencyTo.rate, 8,RoundingMode.HALF_UP);
         }
+
+        // usd base to usd base
         else{
             CurrencyInUsd currencyFrom = new CurrencyInUsd(currency1);
             CurrencyInUsd currencyTo = new CurrencyInUsd(currency2);

@@ -17,6 +17,9 @@ public class Menu {
         System.out.println("How much money would you like to exchange? ");
         Amount amount = new Amount(reader.nextBigDecimal()); // Scans the next token of the input as a BigDecimal.
 
+        System.out.println("Available currencies: AUD, BGN, BRL, CAD, CHF, CNY, CZK, DKK, GBP, HKD, HRK, HUF, IDR, ILS, " +
+                "INR, JPY, KRW, MXN, MYR, NOK, NZD, PHP, PLN, RON, RUB, SEK, SGD, THB, TRY, USD, ZAR");
+
         System.out.println("From which currency? ");
         String currency1 = reader.next().toUpperCase();
 
@@ -25,6 +28,6 @@ public class Menu {
 
         Exchanger changer = new Exchanger();
 
-        System.out.println(changer.exchanger(currency1, currency2, amount));
+        System.out.println(changer.exchanger(currency2, currency1, amount));
     }
 }
