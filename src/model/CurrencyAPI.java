@@ -13,7 +13,7 @@ public class CurrencyAPI {
         String output = "";
         try {
 
-            URL url = new URL("http://api.fixer.io/latest?base=" + baseCurrency);
+            URL url = new URL("https://api.fixer.io/latest?base=" + baseCurrency);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
             conn.setRequestProperty("Accept", "application/json");
