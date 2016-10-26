@@ -1,4 +1,4 @@
-package currency;
+package model;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -7,13 +7,14 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+
 public class CurrencyAPI {
 
-    public static String CurrencyAPI() {
-
+    public String currencyAPI(String baseCurrency) {
+        String output = "";
         try {
 
-            URL url = new URL("http://api.fixer.io/latest");
+            URL url = new URL("https://api.fixer.io/latest?base=" + baseCurrency);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
             conn.setRequestProperty("Accept", "application/json");
@@ -26,12 +27,7 @@ public class CurrencyAPI {
             BufferedReader br = new BufferedReader(new InputStreamReader(
                     (conn.getInputStream())));
 
-            String output;
-//            System.out.println("Output from Server .... \n");
-            while ((output = br.readLine()) != null) {
-//                System.out.println(output);
-            }
-            return output;
+            output = br.readLine();
 
             conn.disconnect();
 
@@ -44,7 +40,7 @@ public class CurrencyAPI {
             e.printStackTrace();
 
         }
-
+    return output;
     }
 
 }

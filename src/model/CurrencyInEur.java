@@ -1,15 +1,20 @@
 package model;
 
+import controller.APIHandler;
 import java.math.BigDecimal;
 
-/**
- * Created by csyk on 2016.10.24..
- */
+
 public class CurrencyInEur extends Currency {
 
-    public CurrencyInEur (String name, String baseCurrency, BigDecimal rate){
+    public CurrencyInEur(String name){
         this.name = name;
-        this.baseCurrency = baseCurrency;
-        this.rate = rate;
+        this.baseCurrency = "EUR";
+        this.rate = getRate(this.baseCurrency, name);
     }
+
+    static BigDecimal getRate(String baseCurrency, String name){
+        APIHandler newRate = new APIHandler();
+        return newRate.apiHandler(baseCurrency, name);
+    }
+
 }
