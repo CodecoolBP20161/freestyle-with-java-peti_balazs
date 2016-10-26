@@ -14,7 +14,6 @@ public class Exchanger {
 
     String[] eurCurrencies = new String[]{"BGN", "CHF", "CZK", "DKK", "GBP", "HRK", "HUF", "NOK", "PLN", "RON", "RUB", "SEK", "TRY", "USD"};
 
-
     public BigDecimal exchanger(String currency1, String currency2, Amount amount){
 
         BigDecimal result;

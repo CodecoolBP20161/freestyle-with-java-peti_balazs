@@ -3,6 +3,7 @@ package model;
 import controller.APIHandler;
 import java.math.BigDecimal;
 
+
 public class CurrencyInEur extends Currency {
 
     public CurrencyInEur(String name){

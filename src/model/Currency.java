@@ -3,7 +3,7 @@ package model;
 import java.math.BigDecimal;
 
 
-public class Currency {
+public abstract class Currency {
 
     public String name;
     public String baseCurrency;

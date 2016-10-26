@@ -7,12 +7,11 @@ import java.util.Map;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import model.CurrencyAPI;
-import view.Menu;
+
 
 public class APIHandler {
 
     public BigDecimal apiHandler(String baseCurrency, String currency) {
-
 
                 // Protected code
                 CurrencyAPI rawData = new CurrencyAPI();
@@ -22,6 +21,5 @@ public class APIHandler {
                 Map<String, Double> map = outerMap.get("rates");
                 Double rateDouble = map.get(currency);
                 return new BigDecimal(rateDouble, MathContext.DECIMAL32);
-
     }
 }
